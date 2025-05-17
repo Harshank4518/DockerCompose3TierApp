@@ -1,0 +1,29 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+  <label for="name">Name:</label><br>
+  <input id="name" formControlName="name" type="text" /><br>
+  <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched" style="color:red">
+    Name is required.
+  </div>
+
+  <label for="email">Email:</label><br>
+  <input id="email" formControlName="email" type="email" /><br>
+  <div *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched" style="color:red">
+    Enter a valid email.
+  </div>
+
+  <label for="age">Age:</label><br>
+  <input id="age" formControlName="age" type="number" /><br>
+  <div *ngIf="studentForm.get('age')?.invalid && studentForm.get('age')?.touched" style="color:red">
+    Age must be a positive number.
+  </div>
+
+  <label for="course">Course:</label><br>
+  <input id="course" formControlName="course" type="text" /><br>
+  <div *ngIf="studentForm.get('course')?.invalid && studentForm.get('course')?.touched" style="color:red">
+    Course is required.
+  </div>
+
+  <br>
+  <button type="submit" [disabled]="studentForm.invalid">Submit</button>
+</form>
