@@ -1,0 +1,20 @@
+Build MySQL Image , then build frontend and backend images present in Application directory.
+
+Run below command to start The container : 
+
+docker run -d --name mysql-Container \-p 3306:3306 \--network my-network \-v mysql-data:/var/lib/mysql \mysql-studentdb
+
+docker run -d --name backend -p 3000:3000 --env-file .env --network my-network backend  
+
+docker run -d --name frontend -p 4200:4200 --network my-network frontend  
+
+Need to create table : 
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    age INT,
+    course VARCHAR(100)
+);
+
