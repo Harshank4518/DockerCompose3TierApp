@@ -8,7 +8,7 @@ services:
       - "4200:4200"
     depends_on:
       - backend
-    network:
+    networks:
       - my-network
   backend:
     container_name: backend
@@ -21,7 +21,7 @@ services:
       - .env
     depends_on:
       - db
-    network:
+    networks:
       - my-network
   db:
     container_name: mysql
@@ -32,7 +32,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-    network:
+    networks:
       - my-network
 volumes:
   mysql-data:
