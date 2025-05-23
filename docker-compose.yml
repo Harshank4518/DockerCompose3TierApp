@@ -1,0 +1,49 @@
+services:
+  frontend:
+    container_name: frontend
+    build: 
+      context: student-form-app/
+    image: frontend
+    port:
+      - "4200:4200"
+    depends_on:
+      - backend
+    network:
+      - my-network
+  backend:
+    container_name: backend
+    build: 
+     context: Backend/
+    image:  backend
+    ports: 
+     - "3500:3500"
+    env_file:
+      - .env 
+    depends_on:
+      - db 
+    network:
+      - my-network
+  db:
+    container_name: mysql
+    build: 
+      context: .
+    image: mysql-studentdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    network:
+      - my-network
+volumes:
+  mysql-data:
+networks:
+  three-tier-net:
+    name: my-network
+    driver: bridge
+    
+
+    
+
+
+
+
