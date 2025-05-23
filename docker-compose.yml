@@ -17,8 +17,11 @@ services:
     image: backend
     ports:
       - "3500:3500"
-    env_file:
-      - Backend/.env
+    environment:
+      - DB_HOST=mysql-Container
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=studentdb
     depends_on:
       - db
     networks:
