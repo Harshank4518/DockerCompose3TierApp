@@ -24,7 +24,7 @@ services:
     networks:
       - my-network
   db:
-    container_name: mysql
+    container_name: mysql-Container
     build:
       context: .
     image: mysql-studentdb
