@@ -10,5 +10,5 @@ app.use(bodyParser.json());
 app.use('/student', studentRoutes);
 
 app.listen(3000, () => {
-  console.log(`Server running on http://${HOST}:${PORT}`);
+  console.log(`Server running on http://${process.env.HOST}:${process.env.PORT}`);
 });
