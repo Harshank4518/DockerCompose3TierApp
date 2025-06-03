@@ -16,7 +16,7 @@ services:
       context: Backend/
     image: backend
     ports:
-      - "3500:3500"
+      - "3000:3000"
     environment:
       - DB_HOST=mysql-Container
       - DB_USER=root
